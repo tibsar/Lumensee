@@ -4,8 +4,9 @@ $(document).ready(function(){
    navigator.geolocation.getCurrentPosition(function(position) {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
-    var coords = [lat, lon];
-    console.log(coords);
+    var coords = {};
+    coords["latitude"] = lat;
+    coords["longitude"] = lon;
     return coords;
   });
 
