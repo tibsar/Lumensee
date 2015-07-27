@@ -24,7 +24,8 @@ $(document).ready(function(){
       var month = monthNames[today.getMonth()].toLowerCase().substring(0,3);
 
       var pollution = data["outputs"]["avg_dni"]["monthly"][month];
-      console.log(pollution);
+
+      return pollution;
     });
   }); // then
 
