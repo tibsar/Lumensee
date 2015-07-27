@@ -14,7 +14,6 @@ $(document).ready(function(){
   //Get light pollution
   location.then(function(coords){
     var key = "<%= ENV['NREL_key'] %>";
-    debugger;
     var FinalURL = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=" + key + "&lat=" + coords["latitude"] + "&lon=" + coords["longitude"];
 
     $.getJSON(FinalURL, function(data){
@@ -24,7 +23,7 @@ $(document).ready(function(){
         ];
         var today = new Date();
         var month = monthNames[today.getMonth()].toLowerCase().substring(0,3);
-        
+
         var pollution = data["outputs"]["avg_dni"]["monthly"][month];
         console.log(pollution);
         var result = ""
