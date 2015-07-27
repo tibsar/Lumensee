@@ -1,0 +1,33 @@
+$(document).ready(function(){
+  //Get location
+  var location = new Promise(function(resolve, reject){
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+      coords = {};
+      coords["latitude"] = lat;
+      coords["longitude"] = lon;
+      resolve(coords);
+    }); // navigator
+  }); //promise
+
+  //Get light pollution
+  location.then(function(coords){
+    var key = "<%= ENV['NREL_key'] %>";
+    var FinalURL = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=" + key + "&lat=" + coords["latitude"] + "&lon=" + coords["longitude"];
+
+    $.getJSON(FinalURL, function(data){
+      var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+      ];
+      var today = new Date();
+      var month = monthNames[today.getMonth()].toLowerCase().substring(0,3);
+
+      var pollution = data["outputs"]["avg_dni"]["monthly"][month];
+      console.log(pollution);
+    });
+  }); // then
+
+}); //document ready
+
+
