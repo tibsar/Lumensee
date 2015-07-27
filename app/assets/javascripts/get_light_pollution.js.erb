@@ -25,17 +25,8 @@ $(document).ready(function(){
         var month = monthNames[today.getMonth()].toLowerCase().substring(0,3);
 
         var pollution = data["outputs"]["avg_dni"]["monthly"][month];
-        console.log(pollution);
-        var result = ""
-        if(pollution < 5.5){
-          result = "no!";
-        } else {
-          result = "yes!";
-        }
-        $('.see-sky > h2').text(result);
         return pollution;
       }else{
-        $('.see-sky > h2').text("possibly :/");
         return 0.0;
       }
 
