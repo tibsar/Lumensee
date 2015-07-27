@@ -1,23 +1,23 @@
 {
 id: 53795,
 label: "HIP1 HD224700 Gli",
-x: -18.1007,
-y: 143.562,
-z: -242.612,
-lum: 14.19036,
-colorb_v: 0.396,
+x: -18.1007, // x distance from Sun in parsecs
+y: 143.562, // y distance from Sun in parsecs
+z: -242.612, // z distance from Sun in parsecs
+lum: 14.19036, //Luminosity scaling (calculated) 
+colorb_v: 0.396, // BVcolor
 absmag: 1.85, //Absolute Magnitiude/ Intrinsic Brightness- how bright a star would be without the effects of distance or absorption due to interstellar dust or gas.
 appmag: 9.1, // Apparent Magnitude- the lower the number the brighter the star.  Sun = -26.  In a dark sky free of light pollution, the human eye can see to about +6.5 magnitude.
-texnum: 1,
+texnum: 1, //Texture Number
 distly: 920.9, // Distance in lightyears
-dcalc: 1,
+dcalc: 1, // Distance determination method- a value of 1 or 2 indicating pure trig parallax distance or weighted mean distances respectively
 plx: 3.54, // Parallax
-plxerr: 39.27,
-vx: 0,
-vy: 0,
-vz: 0,
-speed: 0,
-hipnum: 1,
+plxerr: 39.27, // Parallax Uncertainty/Error
+vx: 0, // x velocity in parsecs per megayear
+vy: 0, // y velocity in parsecs per megayear
+vz: 0, // z velocity in parsecs per megayear
+speed: 0, // velocity in parsecs per megayear
+hipnum: 1, // Hipparcos number
 created_at: "2014-11-08T14:49:09.359Z",
 updated_at: "2014-11-08T14:49:09.359Z"
 },
