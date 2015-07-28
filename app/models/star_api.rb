@@ -6,8 +6,8 @@ class StarApi
     require 'open-uri'
   end
 
-  def stars_by_apparent_magnitude(max, page)
-    data = JSON.load(open(BASE_URL + "?max[appmag]=#{max}&page=#{page}"))
+  def stars_by_apparent_magnitude(max)
+    data = JSON.load(open(BASE_URL + "?max[appmag]=#{max}"))
     data.sort_by { |k| k["appmag"] }
   end
 
