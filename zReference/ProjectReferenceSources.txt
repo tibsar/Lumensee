@@ -1,1 +1,15 @@
-ProjectReferenceSources.txt
+-App will use the Hack the Universe Star API.
+    - http://star-api.herokuapp.com
+    - https://github.com/HacktheUniverse/star-api
+
+-The Hack the Universe Star API provides access to the Digital Universe Data Set from the American Museum of Natural History, NYC
+    - http://research.amnh.org/users/abbott/dudata/
+    -https://en.wikipedia.org/wiki/Digital_Universe_Atlas
+
+The HYG Database
+    -Star data with ascension and declination
+    -http://www.astronexus.com/hyg
+
+To Investigate:
+    -Starmap based on location:
+        -http://fourmilab.ch/yoursky/
