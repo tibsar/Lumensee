@@ -7,6 +7,7 @@ $(document).ready(function(){
       coords = {};
       coords["latitude"] = lat;
       coords["longitude"] = lon;
+
       resolve(coords);
     }); // navigator
   }); //promise
@@ -15,7 +16,7 @@ $(document).ready(function(){
   location.then(function(coords){
     var key = "<%= ENV['NREL_key'] %>";
     var FinalURL = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=" + key + "&lat=" + coords["latitude"] + "&lon=" + coords["longitude"];
-
+    var pollution
     $.getJSON(FinalURL, function(data){
       if(data["outputs"]["avg_dni"] != "no data"){
         var monthNames = ["January", "February", "March", "April", "May", "June",
@@ -24,13 +25,20 @@ $(document).ready(function(){
         var today = new Date();
         var month = monthNames[today.getMonth()].toLowerCase().substring(0,3);
 
-        var pollution = data["outputs"]["avg_dni"]["monthly"][month];
-        return pollution;
+        pollution = data["outputs"]["avg_dni"]["monthly"][month];
       }else{
-        return 0.0;
+        pollution = 0.0;
       }
 
+    }).done(function(result){
+      $.ajax( {
+          url: '/observers', 
+          method: 'POST', 
+          data: {coords: coords, pollution: pollution}
+        });
+      
     });
+    // debugger;
   }); // then
 
 }); //document ready

@@ -45,5 +45,7 @@ group :development, :test do
   gem 'figaro'
 
   gem 'gon'
+
+  gem 'pry'
 end
 
