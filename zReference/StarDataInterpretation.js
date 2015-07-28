@@ -31,5 +31,5 @@ updated_at: "2014-11-08T14:49:09.359Z"
 // http://research.amnh.org/users/abbott/dudata/milkyway/specks/stars.speck
 
 
-       x         y         z      colorb_v        lum        absmag    appmag texnum   distly  dcalc     plx      plxerr      vx          vy         vz       speed     hipnum
-  -18.1007   143.5620  -242.6120     0.396     14.19036      1.85      9.10     1     920.90    1      3.540     39.27      0.000      0.000      0.000      0.000       1 # HIP1 HD224700 Gli 
+//       x         y         z      colorb_v        lum        absmag    appmag texnum   distly  dcalc     plx      plxerr      vx          vy         vz       speed     hipnum
+// -18.1007   143.5620  -242.6120     0.396     14.19036      1.85      9.10     1     920.90    1      3.540     39.27      0.000      0.000      0.000      0.000       1 # HIP1 HD224700 Gli 

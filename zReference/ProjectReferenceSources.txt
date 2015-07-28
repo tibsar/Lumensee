@@ -6,7 +6,9 @@
     - http://research.amnh.org/users/abbott/dudata/
     -https://en.wikipedia.org/wiki/Digital_Universe_Atlas
 
-
+The HYG Database
+    -Star data with ascension and declination
+    -http://www.astronexus.com/hyg
 
 To Investigate:
     -Starmap based on location:
