@@ -37,16 +37,16 @@ class Observer
     # (x,y) coordinates for a date
     @x = RadiusEarthOrbit * Math::cos(radians_for_date)
     @y = RadiusEarthOrbit * Math::sin(radians_for_date)
-    @z = 0 
+    @z = 0.0
   end
 
   def calculate_plane
     delta_phi = @latitude - PHI_NAUGHT
 
-    local_radius = (1.0 - (FLATNESS * (Math.sin(@latitude)^2))) * SEMI_MAJOR_AXIS
+    local_radius = (1.0 - (FLATNESS * (Math.sin(@latitude)**2))) * SEMI_MAJOR_AXIS
     phi_radius = local_radius * Math.cos(@latitude)
     a = local_radius * sin(delta_phi)
-    b = phi_radius * (1 - Math.cos(delta_phi)) * Math.sin(PHI_NAUGHT)
+    b = phi_radius * (1.0 - Math.cos(delta_phi)) * Math.sin(PHI_NAUGHT)
     c = phi_radius * Math.sin(delta_phi)
 
     @a = a + @x
