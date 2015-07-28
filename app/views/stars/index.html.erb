@@ -1,6 +1,8 @@
 <ul>
   <% @stars.each do |star|%>
-      <li><%= star.label %></li>
-      <li><%= star.appmag %></li>
+  <li><%= star.label %></li>
+  <ul>
+    <li><%= star.appmag %></li>
+  </ul>
   <% end %>
 </ul>
