@@ -9,6 +9,8 @@
 *.log
 *.sql
 *.sqlite
+tmp/*
+log/*.log
 
 # OS generated files #
 ######################
