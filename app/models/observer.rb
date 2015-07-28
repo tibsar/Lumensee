@@ -41,13 +41,10 @@ class Observer
   end
 
   def calculate_plane
-    
-    lat = coords.lat
-    lon = coords.lon
-    delta_phi = lat - PHI_NAUGHT
+    delta_phi = @latitude - PHI_NAUGHT
 
-    local_radius = (1.0 - (FLATNESS * (Math.sin(lat)^2))) * SEMI_MAJOR_AXIS
-    phi_radius = local_radius * Math.cos(lat)
+    local_radius = (1.0 - (FLATNESS * (Math.sin(@latitude)^2))) * SEMI_MAJOR_AXIS
+    phi_radius = local_radius * Math.cos(@latitude)
     a = local_radius * sin(delta_phi)
     b = phi_radius * (1 - Math.cos(delta_phi)) * Math.sin(PHI_NAUGHT)
     c = phi_radius * Math.sin(delta_phi)
