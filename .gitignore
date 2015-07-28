@@ -1,7 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 # Rubymine-specific #
-.idea
+.idea/
+
 
 # Logs and databases #
 ######################
