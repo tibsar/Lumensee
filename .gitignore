@@ -1,13 +1,16 @@
 # Created by .ignore support plugin (hsz.mobi)
 
 # Rubymine-specific #
-.idea
+.idea/
+
 
 # Logs and databases #
 ######################
 *.log
 *.sql
 *.sqlite
+tmp/*
+log/*.log
 
 # OS generated files #
 ######################
