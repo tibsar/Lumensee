@@ -1,8 +1,10 @@
 <ul>
   <% @stars.each do |star|%>
-  <li><%= star.label %></li>
-  <ul>
-    <li><%= star.appmag %></li>
-  </ul>
+  <div class="star">
+    <li>Label: <%= star.label %></li>
+    <li>Apparent Magnitude: <%= star.appmag %></li>
+    <li>Position: <%= star.position.x %>, <%= star.position.y %>, <%= star.position.z %></li>
+  </div>
+  <br/>
   <% end %>
 </ul>
