@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   //Get location
   var location = new Promise(function(resolve, reject){
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -14,11 +15,12 @@ $(document).ready(function(){
 
   //Get light pollution
   location.then(function(coords){
-    var key = "<%= ENV['NREL_key'] %>";
+
+      var key = "<%= ENV['NREL_key'] %>";
     var FinalURL = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=" + key + "&lat=" + coords["latitude"] + "&lon=" + coords["longitude"];
     var pollution
     $.getJSON(FinalURL, function(data){
-      if(data["outputs"]["avg_dni"] != "no data"){
+      if(data["outputs"]["avg_dni"] != "no data") {
         var monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
         ];
@@ -31,7 +33,7 @@ $(document).ready(function(){
       }
 
     }).done(function(result){
-      $.ajax( {
+      $.ajax({
           url: '/observers', 
           method: 'POST', 
           data: {coords: coords, pollution: pollution}
@@ -42,5 +44,7 @@ $(document).ready(function(){
   }); // then
 
 }); //document ready
+
+
 
 

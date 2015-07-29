@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
    post 'observers' => 'observers#create'
 
-  resources :stars
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
