@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+    console.log("testing 1");
   //Get location
   var location = new Promise(function(resolve, reject){
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -14,7 +16,9 @@ $(document).ready(function(){
 
   //Get light pollution
   location.then(function(coords){
-    var key = "<%= ENV['NREL_key'] %>";
+      console.log("testing 2");
+
+      var key = "<%= ENV['NREL_key'] %>";
     var FinalURL = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=" + key + "&lat=" + coords["latitude"] + "&lon=" + coords["longitude"];
     var pollution
     $.getJSON(FinalURL, function(data){
@@ -45,11 +49,13 @@ $(document).ready(function(){
 
 
 //Temporary function to generate Highcharts JS with
-function getStars(){
-    $.ajax({
-        url: '/stars',
-        method: 'GET'
-    });
-}
+//function getStars(){
+//    console.log("testing 3");
+//
+//    $.ajax({
+//        url: '/stars',
+//        method: 'GET'
+//    });
+//}
 
 

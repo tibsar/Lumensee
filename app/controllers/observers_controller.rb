@@ -1,5 +1,6 @@
 class ObserversController < ApplicationController 
   def create
+    binding.pry
     @latitude = params["coords"]["latitude"].to_f
     @longitude = params["coords"]["longitude"].to_f
     @pollution = params["pollution"].to_f
