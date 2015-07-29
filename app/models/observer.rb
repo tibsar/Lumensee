@@ -1,5 +1,8 @@
 class Observer
-  attr_accessor :latitude, :longitude
+
+  #attr_accessor :latitude, :longitude
+  attr_reader :starsVisible
+
   # r is the distance from the Earth to the Sun.
   # Ruby Math module operates in radians
   # 2*PI radians equals 360 degrees
@@ -28,8 +31,18 @@ class Observer
   PHI_NAUGHT = 1.6180339887499
   RADIANS_OF_ANGLE = -4.1887902
 
-  def initialize
+  @@all = []
+
+  def initialize(latitude, longitude, stars)
     @date = Time.now.yday - 1 #returns integer representing the day in the year 1..366
+    @latitude = latitude
+    @longitude = longitude 
+    @stars = stars
+
+    self.calculate_plane
+    self.visibleStars
+
+    @@all << self
   end
 
   def locate
@@ -58,8 +71,8 @@ class Observer
     #<a, b, c> - normal to plane in earth's coordinates
   end
 
-  def visibleStars(stars)
-    stars.select{ |star| seeStar?(star) }
+  def visibleStars
+    @starsVisible = @stars.select{ |star| seeStar?(star) }
   end 
 
   def seeStar?(star)
@@ -73,6 +86,10 @@ class Observer
       return false 
     end 
     
+  end 
+
+  def self.all 
+    @@all
   end 
 
 end
