@@ -47,5 +47,8 @@ group :development, :test do
   gem 'gon'
 
   gem 'pry'
+
+  gem 'bootstrap-sass'
+
 end
 
