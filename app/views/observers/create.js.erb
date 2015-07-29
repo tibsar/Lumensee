@@ -16,8 +16,8 @@ $(function () {
                 r: 0.5
             },
             stops: [
-                [0, color],
-                [1, Highcharts.Color(color).brighten(-0.2).get('rgb')]
+            [0, color],
+            [1, Highcharts.Color(color).brighten(-0.2).get('rgb')]
             ]
         };
     });
@@ -27,6 +27,7 @@ $(function () {
         chart: {
             renderTo: 'container',
             margin: 100,
+            backgroundColor: '#000000',
             type: 'scatter',
             options3d: {
                 enabled: true,
@@ -36,9 +37,9 @@ $(function () {
                 viewDistance: 5,
 
                 frame: {
-                    bottom: { size: 1, color: 'rgba(0,0,0,0.02)' },
-                    back: { size: 1, color: 'rgba(0,0,0,0.04)' },
-                    side: { size: 1, color: 'rgba(0,0,0,0.06)' }
+                    bottom: { size: 0, color: 'rgba(0,0,0,0)' },
+                    back: { size: 0, color: 'rgba(0,0,0,0)' },
+                    side: { size: 0, color: 'rgba(0,0,0,0)' }
                 }
             }
         },
@@ -56,28 +57,39 @@ $(function () {
             }
         },
         yAxis: {
-            min: -300,
-            max: 800,
-            title: null
-        },
-        xAxis: {
-            min: -450,
-            max: 200,
-            gridLineWidth: 1
-        },
-        zAxis: {
-            min: -500,
-            max: 500,
-            showFirstLabel: false
-        },
-        legend: {
+         labels: {
             enabled: false
         },
-        series: [{
-            colorByPoint: true,
-            data: stars
-        }]
-    });
+        min: -300,
+        max: 800,
+        title: null, 
+        gridLineWidth:0
+    },
+    xAxis: {
+        labels: {
+            enabled: false
+        },
+        min: -450,
+        max: 200,
+        gridLineWidth: 0
+    },
+    zAxis: {
+        labels: {
+            enabled: false
+        },
+        min: -500,
+        max: 500,
+        showFirstLabel: false, 
+        gridLineWidth:0
+    },
+    legend: {
+        enabled: false
+    },
+    series: [{
+        colorByPoint: true,
+        data: stars
+    }]
+});
 
 
     // Add mouse events for rotation
@@ -85,15 +97,15 @@ $(function () {
         e = chart.pointer.normalize(e);
 
         var posX = e.pageX,
-                posY = e.pageY,
-                alpha = chart.options.chart.options3d.alpha,
-                beta = chart.options.chart.options3d.beta,
-                newAlpha,
-                newBeta,
+        posY = e.pageY,
+        alpha = chart.options.chart.options3d.alpha,
+        beta = chart.options.chart.options3d.beta,
+        newAlpha,
+        newBeta,
                 sensitivity = 5; // lower is more sensitive
 
-        $(document).bind({
-            'mousemove.hc touchdrag.hc': function (e) {
+                $(document).bind({
+                    'mousemove.hc touchdrag.hc': function (e) {
                 // Run beta
                 newBeta = beta + (posX - e.pageX) / sensitivity;
                 chart.options.chart.options3d.beta = newBeta;
@@ -108,6 +120,6 @@ $(function () {
                 $(document).unbind('.hc');
             }
         });
-    });
+            });
 
 });
