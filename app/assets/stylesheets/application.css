@@ -14,3 +14,8 @@
  *= require_self
  *= require bootstrap.min.css
  */
+
+html, body, .chart {
+    margin: 0;
+    height: 90%;
+}
