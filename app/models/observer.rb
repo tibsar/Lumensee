@@ -26,6 +26,7 @@ class Observer
   FLATNESS = (1.0/298.257)
   SEMI_MAJOR_AXIS = 6378.1363
   PHI_NAUGHT = 1.6180339887499
+  RADIANS_OF_ANGLE = 1.04719755
 
   def initialize
     @date = Time.now.yday - 1 #returns integer representing the day in the year 1..366
@@ -42,18 +43,19 @@ class Observer
 
   def calculate_plane
     delta_phi = @latitude - PHI_NAUGHT
-
     local_radius = (1.0 - (FLATNESS * (Math.sin(@latitude)**2))) * SEMI_MAJOR_AXIS
     phi_radius = local_radius * Math.cos(@latitude)
+    
+    #non-rotated
     a = local_radius * sin(delta_phi)
     b = phi_radius * (1.0 - Math.cos(delta_phi)) * Math.sin(PHI_NAUGHT)
     c = phi_radius * Math.sin(delta_phi)
 
-    @a = a + @x
-    @b = b + @y 
-    @c = c + @z
-    #<a, b, c> - normal to plane 
-
+    #rotated 
+    @a = a 
+    @b = (0.5 * b) - (c * sin(RADIANS_OF_ANGLE))  
+    @c = (0.5 * c) + (b * sin(RADIANS_OF_ANGLE)) 
+    #<a, b, c> - normal to plane in earth's coordinates
   end
 
   def visibleStars(stars)
