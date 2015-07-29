@@ -1,5 +1,5 @@
 class Observer
-
+  attr_accessor :latitude, :longitude
   # r is the distance from the Earth to the Sun.
   # Ruby Math module operates in radians
   # 2*PI radians equals 360 degrees
@@ -26,7 +26,7 @@ class Observer
   FLATNESS = (1.0/298.257)
   SEMI_MAJOR_AXIS = 6378.1363
   PHI_NAUGHT = 1.6180339887499
-  RADIANS_OF_ANGLE = 1.04719755
+  RADIANS_OF_ANGLE = -4.1887902
 
   def initialize
     @date = Time.now.yday - 1 #returns integer representing the day in the year 1..366
@@ -43,18 +43,18 @@ class Observer
 
   def calculate_plane
     delta_phi = @latitude - PHI_NAUGHT
-    local_radius = (1.0 - (FLATNESS * (Math.sin(@latitude)**2))) * SEMI_MAJOR_AXIS
-    phi_radius = local_radius * Math.cos(@latitude)
+    local_radius = (1.0 - (FLATNESS * (Math::sin(@latitude)**2))) * SEMI_MAJOR_AXIS
+    phi_radius = local_radius * Math::cos(@latitude)
     
     #non-rotated
-    a = local_radius * sin(delta_phi)
-    b = phi_radius * (1.0 - Math.cos(delta_phi)) * Math.sin(PHI_NAUGHT)
-    c = phi_radius * Math.sin(delta_phi)
+    a = local_radius * Math::sin(delta_phi)
+    b = phi_radius * (1.0 - Math::cos(delta_phi)) * Math::sin(PHI_NAUGHT)
+    c = phi_radius * Math::sin(delta_phi)
 
     #rotated 
     @a = a 
-    @b = (0.5 * b) - (c * sin(RADIANS_OF_ANGLE))  
-    @c = (0.5 * c) + (b * sin(RADIANS_OF_ANGLE)) 
+    @b = (b * Math::cos(RADIANS_OF_ANGLE)) - (c * Math::sin(RADIANS_OF_ANGLE))  
+    @c = (c * Math::cos(RADIANS_OF_ANGLE)) + (b * Math::sin(RADIANS_OF_ANGLE)) 
     #<a, b, c> - normal to plane in earth's coordinates
   end
 
@@ -66,9 +66,8 @@ class Observer
     # (point to test) dot (plane normal) = 0 => Point is on the plane
     # (point to test) dot (plane normal) > 0 => Point is on the same side as the normal vector
     # (point to test) dot (plane normal) < 0 => Point is on the opposite side of the normal vector
-    dot_product = (@a * star.x) + (@b * star.y) + (@c * star.z)
-
-    if dot_product > 0 || dot_product == 0 
+    dot_product = (@a * star.position.x) + (@b * star.position.y) + (@c * star.position.z)
+    if dot_product > 0 
       return true 
     else 
       return false 
