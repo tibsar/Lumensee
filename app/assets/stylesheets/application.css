@@ -15,7 +15,7 @@
  *= require bootstrap.min.css
  */
 
-html, body, #container {
+html, body, .chart {
     margin: 0;
-    height: 100%;
+    height: 90%;
 }
