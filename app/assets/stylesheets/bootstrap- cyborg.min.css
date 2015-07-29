@@ -6967,3 +6967,18 @@ a.list-group-item-danger.active:focus {
 .jumbotron h6 {
   color: #fff;
 }
+
+footer {
+  width:100%;
+  height:60px;
+  position:absolute;
+  bottom:0;
+}
+
+p.shift-left {
+  padding-right: 30px;
+}
+
+p.shift-right {
+  padding-left: 30px;
+}
