@@ -1,0 +1,8 @@
+Galactic Alignment
+  -Defining a reference point to relate the location of the Earth in the Galactic Coordinate System (x,y,z) and a specific date.
+
+  -http://www.universetoday.com/30762/galactic-alignment/
+
+    -"There’s another type of galactic alignment. This is where the Earth, Sun and the center of the galaxy are in perfect alignment from our perspective. This actually happens every year during the winter solstice, on December 21st." 
+
+  -http://www2.astro.psu.edu/users/rbc/a501/c1_spherical_astronomy.pdf

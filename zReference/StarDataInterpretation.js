@@ -33,3 +33,8 @@ updated_at: "2014-11-08T14:49:09.359Z"
 
 //       x         y         z      colorb_v        lum        absmag    appmag texnum   distly  dcalc     plx      plxerr      vx          vy         vz       speed     hipnum
 // -18.1007   143.5620  -242.6120     0.396     14.19036      1.85      9.10     1     920.90    1      3.540     39.27      0.000      0.000      0.000      0.000       1 # HIP1 HD224700 Gli 
+// Always visible in Northern Hemisphere
+// -64.9796    98.9966    58.9410     0.451   2212.87280     -3.64      1.97     1     431.22    1      7.560      6.35    -14.681    -30.278     -2.863     33.771   11767 # HIP11767 HD8890 Gli Alp UMi  Polaris
+// -11.3527    27.2100    25.1835     1.086    173.41927     -0.87      2.07     1     126.41    1     25.790      2.02    -10.314      8.550     12.406     18.259   72607 # HIP72607 HD131873 Gli Bet UMi  Kochab
+// Should never be visible in northern hemisphere
+// 40.9137   -60.8744   -38.5294     0.266     35.20348      0.86      5.45     1     270.09    1     12.070      3.98     -2.046     -7.350    -12.394     14.554  104382 # HIP104382 HD177482 Gli Sig Oct
