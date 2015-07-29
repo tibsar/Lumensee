@@ -67,8 +67,7 @@ class Observer
     # (point to test) dot (plane normal) > 0 => Point is on the same side as the normal vector
     # (point to test) dot (plane normal) < 0 => Point is on the opposite side of the normal vector
     dot_product = (@a * star.position.x) + (@b * star.position.y) + (@c * star.position.z)
-
-    if dot_product > 0 || dot_product == 0 
+    if dot_product > 0 
       return true 
     else 
       return false 
