@@ -1,6 +1,6 @@
 class Observer
 
-  #attr_accessor :latitude, :longitude
+  attr_reader :stars
 
   # r is the distance from the Earth to the Sun.
   # Ruby Math module operates in radians

@@ -4,7 +4,6 @@ $(document).ready(function(){
   var location = new Promise(function(resolve, reject){
     navigator.geolocation.getCurrentPosition(function(position) {
 
-        console.log(position);
       var lat = position.coords.latitude;
       var lon = position.coords.longitude;
       coords = {};
@@ -31,7 +30,7 @@ $(document).ready(function(){
 
         pollution = data["outputs"]["avg_dni"]["monthly"][month];
       }else{
-        pollution = 0.0;
+        pollution = 3.0;
       }
 
     }).done(function(result){
