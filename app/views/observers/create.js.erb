@@ -35,8 +35,8 @@ $(function () {
                 enabled: true,
                 alpha: 10,
                 beta: 30,
-                depth: 250,
-                viewDistance: 1,
+                depth: 500,
+                viewDistance: 100,
 
                 frame: {
                     bottom: { size: 0, color: 'rgba(0,0,0,0)' },
@@ -66,15 +66,15 @@ $(function () {
             min: "<%= @y_array.min.to_i + 500 %>",
             max: "<%= @y_array.max.to_i %>",
             title: null, 
-            gridLineWidth:0
+            gridLineWidth:1
         },
         xAxis: {
             labels: {
                 enabled: false
             },
             min: "<%= @x_array.min.to_i + 200%>",
-            max: "<%= @x_array.max.to_i %>" - 1000 ,
-            gridLineWidth: 0
+            max: "<%= @x_array.max.to_i - 100 %>" ,
+            gridLineWidth: 1
         },
         zAxis: {
             labels: {
@@ -83,7 +83,7 @@ $(function () {
             min: "<%= @z_array.min.to_i  - 200 %>",
             max: "<%= @z_array.max.to_i %>" + 500,
             showFirstLabel: false, 
-            gridLineWidth: 0
+            gridLineWidth: 1
         },
         legend: {
             enabled: false
