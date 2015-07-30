@@ -6,10 +6,8 @@ class StarsController < ApplicationController
 
     @star_points = @stars.map do |star|
 
-      radius = 4*(1.25**(6.5-star.appmag)).round(2)
-
       {
-          marker: {radius: radius},
+          marker: {radius: star.relative_brightness_radius},
           x: star.position.x,
           y: star.position.y,
           z: star.position.z

@@ -1,7 +1,6 @@
 class Observer
 
   #attr_accessor :latitude, :longitude
-  attr_reader :starsVisible
 
   # r is the distance from the Earth to the Sun.
   # Ruby Math module operates in radians
@@ -33,14 +32,14 @@ class Observer
 
   @@all = []
 
-  def initialize(latitude, longitude, stars)
+  def initialize(variables = {})
     @date = Time.now.yday - 1 #returns integer representing the day in the year 1..366
-    @latitude = latitude
-    @longitude = longitude 
-    @stars = stars
+    @latitude = variables[:latitude].to_f
+    @longitude = variables[:longitude].to_f
+    @pollution = variables[:pollution].to_f
+    @stars = Star.all_by_apparent_magnitude(@pollution)
 
     self.calculate_plane
-    self.visibleStars
 
     @@all << self
   end
@@ -71,22 +70,22 @@ class Observer
     #<a, b, c> - normal to plane in earth's coordinates
   end
 
-  def visibleStars
-    @starsVisible = @stars.select{ |star| seeStar?(star) }
+  def plot_visible_stars
+    self.stars_visible.reject{ |s| s.label == "Sun" }.map{ |star| star.generate_chart_point }
+  end
+
+  def stars_visible
+    @stars_visible ||= @stars.select{ |star| see_star?(star) }
   end 
 
-  def seeStar?(star)
+  def see_star?(star)
     # (point to test) dot (plane normal) = 0 => Point is on the plane
     # (point to test) dot (plane normal) > 0 => Point is on the same side as the normal vector
     # (point to test) dot (plane normal) < 0 => Point is on the opposite side of the normal vector
     dot_product = (@a * star.position.x) + (@b * star.position.y) + (@c * star.position.z)
-    if dot_product > 0 
-      return true 
-    else 
-      return false 
-    end 
-    
-  end 
+
+    dot_product > 0 ? true : false
+  end
 
   def self.all 
     @@all
