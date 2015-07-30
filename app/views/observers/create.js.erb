@@ -63,7 +63,7 @@ $(function () {
                 enabled: false
             },
 
-            min: "<%= @y_array.min.to_i + 500 %>",
+            min: "<%= @y_array.min.to_i %>",
             max: "<%= @y_array.max.to_i %>",
             title: null, 
             gridLineWidth:1
@@ -72,16 +72,16 @@ $(function () {
             labels: {
                 enabled: false
             },
-            min: "<%= @x_array.min.to_i + 200%>",
-            max: "<%= @x_array.max.to_i - 100 %>" ,
+            min: "<%= @x_array.min.to_i %>",
+            max: "<%= @x_array.max.to_i %>" ,
             gridLineWidth: 1
         },
         zAxis: {
             labels: {
                 enabled: false
             },
-            min: "<%= @z_array.min.to_i  - 200 %>",
-            max: "<%= @z_array.max.to_i %>" + 500,
+            min: "<%= @z_array.min.to_i %>",
+            max: "<%= @z_array.max.to_i %>",
             showFirstLabel: false, 
             gridLineWidth: 1
         },
@@ -135,7 +135,7 @@ $(function () {
         });
             });
 
-    $('#result').append('<%= j render partial: 'pollution', locals: {pollution: @pollution} %>')
+    $('#result').html('<%= j render partial: 'pollution', locals: {pollution: @pollution} %>')
 
 
 });
