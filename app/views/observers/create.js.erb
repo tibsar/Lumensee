@@ -1,8 +1,7 @@
 
 var stars = JSON.parse("<%= @stars.to_json %>".replace(/&quot;/g, '"'));
-
-
-
+console.log("<%= @average_x %>")
+console.log("<%= @average_x %>" - 500)
 $(function () {
 
     Highcharts.setOptions({
@@ -64,8 +63,8 @@ $(function () {
                 enabled: false
             },
 
-            min: -150,
-            max: 700,
+            min: "<%= @y_array.min.to_i + 500 %>",
+            max: "<%= @y_array.max.to_i %>",
             title: null, 
             gridLineWidth:0
         },
@@ -73,18 +72,18 @@ $(function () {
             labels: {
                 enabled: false
             },
-            min: -250,
-            max: 250,
+            min: "<%= @x_array.min.to_i + 200%>",
+            max: "<%= @x_array.max.to_i %>" - 1000 ,
             gridLineWidth: 0
         },
         zAxis: {
             labels: {
                 enabled: false
             },
-            min: -50,
-            max: 50,
+            min: "<%= @z_array.min.to_i  - 200 %>",
+            max: "<%= @z_array.max.to_i %>" + 500,
             showFirstLabel: false, 
-            gridLineWidth:0
+            gridLineWidth: 0
         },
         legend: {
             enabled: false
@@ -100,7 +99,7 @@ $(function () {
             tooltip: {
                 headerFormat: '',
                 pointFormat: '{point.name}<br/>x: {point.x}<br/>y: {point.y}<br/>z: {point.z}'
-           }
+            }
         }]
     });
 
