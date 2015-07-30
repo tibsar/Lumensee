@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
    post 'observers' => 'observers#create'
 
+   get 'about' => 'application#about'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
