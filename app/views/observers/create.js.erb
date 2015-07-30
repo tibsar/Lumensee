@@ -135,4 +135,7 @@ $(function () {
         });
     });
 
+    $('#result').append('<%= j render partial: 'pollution', locals: {pollution: @pollution} %>')
+
+
 });

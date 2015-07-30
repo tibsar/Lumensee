@@ -1,6 +1,8 @@
 class ObserversController < ApplicationController 
   def create
     @stars = Observer.new(observer_params).plot_visible_stars
+    @pollution = observer_params[:pollution]
+
 
     respond_to do |format|
       format.js

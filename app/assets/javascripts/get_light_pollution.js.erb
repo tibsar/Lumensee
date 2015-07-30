@@ -3,6 +3,8 @@ $(document).ready(function(){
   //Get location
   var location = new Promise(function(resolve, reject){
     navigator.geolocation.getCurrentPosition(function(position) {
+
+        console.log(position);
       var lat = position.coords.latitude;
       var lon = position.coords.longitude;
       coords = {};
