@@ -36,9 +36,12 @@ $(document).ready(function(){
       $.ajax({
           url: '/observers', 
           method: 'POST', 
-          data: {coords: coords, pollution: pollution}
+          data: {observer: {latitude: coords["latitude"], longitude: coords["longitude"], pollution: pollution}}
         });
-      
+
+//        data: {coords: coords, pollution: pollution}
+
+
     });
     // debugger;
   }); // then
