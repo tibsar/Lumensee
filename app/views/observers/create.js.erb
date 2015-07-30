@@ -96,7 +96,11 @@ $(function () {
         },
         series: [{
             colorByPoint: true,
-            data: stars
+            data: stars,
+            tooltip: {
+                headerFormat: '',
+                pointFormat: '{point.name}<br/>x: {point.x}<br/>y: {point.y}<br/>z: {point.z}'
+           }
         }]
     });
 
