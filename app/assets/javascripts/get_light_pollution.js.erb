@@ -18,7 +18,6 @@ $(document).ready(function(){
   location.then(function(coords){
 
     var key = "<%= ENV['NREL_key'] %>";
-    debugger;
     var FinalURL = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=" + key + "&lat=" + coords["latitude"] + "&lon=" + coords["longitude"];
     var pollution
     $.getJSON(FinalURL, function(data){

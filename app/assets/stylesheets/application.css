@@ -79,8 +79,29 @@
         }
 
 
-.pull-left, .pull-right {
-  margin-bottom: 0px;
-  padding-top: 30px;
-  height: 0;
-}
+        .pull-left, .pull-right {
+          margin-bottom: 0px;
+          padding-top: 30px;
+          height: 0;
+        }
+        #pollution {
+          width: 20%;
+          height: 100%;
+          position: absolute;
+          bottom: 50;
+          right: 0;
+          padding-right: 20px;
+          text-align: right;
+          z-index: 10;
+        }
+
+        #location {
+          width: 20%;
+          height: 100%;
+          position: absolute;
+          bottom: 50;
+          left: 0;
+          padding-left: 20px;
+          text-align: left;
+          z-index: 10;
+        }
