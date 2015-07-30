@@ -27,7 +27,8 @@ class Star
         name: self.label,
         x: self.position.x,
         y: self.position.y,
-        z: self.position.z
+        z: self.position.z,
+        appmag: self.appmag
     }
   end
 
