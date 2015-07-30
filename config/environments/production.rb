@@ -79,4 +79,6 @@ config.i18n.fallbacks = true
 
   config.serve_static_assets = true
   config.assets.compile = true
+
+  config.assets.precompile += ['rollover.js', 'highcharts.js']
 end
