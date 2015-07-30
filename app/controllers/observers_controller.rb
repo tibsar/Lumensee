@@ -1,6 +1,9 @@
 class ObserversController < ApplicationController 
   def create
     obs = Observer.new(observer_params)
+    @stars = obs.plot_visible_stars
+    @pollution = observer_params[:pollution]
+
     @x_array = obs.stars.collect{|s| s.position.x}
     @average_x = @x_array.inject{ |sum, el| sum + el }.to_f / @x_array.size
 

@@ -1414,7 +1414,7 @@ a.bg-danger:focus {
 }
 .page-header {
   padding-bottom: 9px;
-  margin: 40px 0 20px;
+  margin: 0px 0 20px;
   border-bottom: 1px solid #282828;
 }
 ul,
@@ -6968,6 +6968,8 @@ a.list-group-item-danger.active:focus {
   color: #fff;
 }
 
+/*Added for LumenSee*/
+
 .shift-left {
   padding-right: 30px;
 }
@@ -6982,11 +6984,23 @@ a.list-group-item-danger.active:focus {
   padding: 10px;
 }
 
-
-
-
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -50px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 50px; 
+}
 .site-footer {
-  height: 50px;
   background: black;
-  bottom: 0;
+}
+
+.social-media a {
+  padding: 5px;
+  text-decoration: none !important;
 }
