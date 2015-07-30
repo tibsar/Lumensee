@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150728123218) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "orbit_locations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
