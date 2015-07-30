@@ -6982,3 +6982,9 @@ p.shift-left {
 p.shift-right {
   padding-left: 30px;
 }
+
+.center-text-block {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
