@@ -19,3 +19,20 @@ html, body, .chart {
     margin: 0;
     height: 90%;
 }
+
+#navibar {
+  margin-bottom: 0px;
+}
+
+#tagline {
+  margin: 10px 0 10px;
+  padding-bottom: 4px;
+}
+
+#tagline p {
+  padding-left: 140px;
+}
+
+/*.dropdown-menu {
+    width: 185px !important;
+}*/
