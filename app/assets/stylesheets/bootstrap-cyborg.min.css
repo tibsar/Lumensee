@@ -6987,15 +6987,15 @@ a.list-group-item-danger.active:focus {
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -50px; 
+  margin-bottom: -30px; 
 }
 .page-wrap:after {
   content: "";
   display: block;
 }
 .site-footer, .page-wrap:after {
-  height: 50px; 
-}
+  height: 30px; 
+}`
 .site-footer {
   background: black;
 }
