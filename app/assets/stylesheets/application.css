@@ -15,7 +15,11 @@
  *= require bootstrap.min.css
  */
 
- html, body, .chart {
+
+ html, body {
+  height: 91%;
+}
+.chart {
   margin: 0;
   height: 90%;
 }
@@ -41,10 +45,42 @@
   margin-top: -30px; /* -1 * image height / 2 */
 }
 
-.site-footer{
+/*.site-footer{
   position:absolute;
-  bottom:0;
-  width:100%;
-  height:30px;   /* Height of the footer */
-}
+  margin-bottom:0;
+  width:100%; 
+  }*/
 
+/*#footer {
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    }*/
+    * {
+      margin: 0;
+    }
+
+    #main {
+      overflow:none;
+      padding-bottom: 30px;}  /* must be same height as the footer */
+
+      /*.wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -30px; /* the bottom margin is the negative value of the footer's height */
+        }*/
+        .footer, .push {
+          margin-top: -30px; 
+          /* height: 30px;*/ /* .push must be the same height as .footer */
+          clear:both;
+        }
+
+
+.pull-left, .pull-right {
+  margin-bottom: 0px;
+  padding-top: 30px;
+  height: 0;
+}
