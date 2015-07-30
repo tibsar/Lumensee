@@ -24,6 +24,7 @@ class Star
   def generate_chart_point
     {
         marker: {radius: self.relative_brightness_radius},
+        name: self.label,
         x: self.position.x,
         y: self.position.y,
         z: self.position.z

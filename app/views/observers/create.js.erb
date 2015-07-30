@@ -1,6 +1,4 @@
 
-
-
 var stars = JSON.parse("<%= @stars.to_json %>".replace(/&quot;/g, '"'));
 
 
@@ -62,44 +60,46 @@ $(function () {
             }
         },
         yAxis: {
-         labels: {
+            labels: {
+                enabled: false
+            },
+
+            min: -150,
+            max: 700,
+            title: null, 
+            gridLineWidth:0
+        },
+        xAxis: {
+            labels: {
+                enabled: false
+            },
+            min: -250,
+            max: 250,
+            gridLineWidth: 0
+        },
+        zAxis: {
+            labels: {
+                enabled: false
+            },
+            min: -50,
+            max: 50,
+            showFirstLabel: false, 
+            gridLineWidth:0
+        },
+        legend: {
             enabled: false
         },
-        min: -150,
-        max: 700,
-        title: null, 
-        gridLineWidth:0
-    },
-    xAxis: {
-        labels: {
-            enabled: false
+        plotOptions: {
+            series:{
+                color: "#FFFFFF"
+            }
         },
-        min: -250,
-        max: 250,
-        gridLineWidth: 0
-    },
-    zAxis: {
-        labels: {
-            enabled: false
-        },
-        min: -50,
-        max: 50,
-        showFirstLabel: false, 
-        gridLineWidth:0
-    },
-    legend: {
-        enabled: false
-    },
-    plotOptions: {
-        series:{
-            color: "#FFFFFF"
-        }
-    },
-    series: [{
-        colorByPoint: true,
-        data: stars
-    }]
-});
+        series: [{
+            colorByPoint: true,
+            data: stars
+        }]
+    });
+
 
 
     // Add mouse events for rotation
