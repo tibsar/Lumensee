@@ -1,13 +1,13 @@
 
-
-
-var stars = JSON.parse("<%= @star_points.to_json %>".replace(/&quot;/g, '"'));
-
-
-
+var stars = JSON.parse("<%= @stars.to_json %>".replace(/&quot;/g, '"'));
+console.log("<%= @average_x %>")
+console.log("<%= @average_x %>" - 500)
 $(function () {
 
-    // Give the points a 3D feel by adding a radial gradient
+    Highcharts.setOptions({
+        colors: ['#FFFFFF', '#777777', '#666666', '#EEEEEE', '#444444', '#555555', '#FFFFCC', '#FFFFF0', '#FFFFDB']
+    });
+    //Give the points a 3D feel by adding a radial gradient
     Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function (color) {
         return {
             radialGradient: {
@@ -17,16 +17,18 @@ $(function () {
             },
             stops: [
             [0, color],
-            [1, Highcharts.Color(color).brighten(-0.2).get('rgb')]
+            [1, Highcharts.Color(color).brighten(-0.2).get('bw')]
             ]
         };
     });
+
+
 
     // Set up the chart
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
-            margin: 100,
+            margin: 0,
             backgroundColor: '#000000',
             type: 'scatter',
             options3d: {
@@ -34,7 +36,7 @@ $(function () {
                 alpha: 10,
                 beta: 30,
                 depth: 250,
-                viewDistance: 5,
+                viewDistance: 1,
 
                 frame: {
                     bottom: { size: 0, color: 'rgba(0,0,0,0)' },
@@ -51,45 +53,56 @@ $(function () {
         },
         plotOptions: {
             scatter: {
-                width: 10,
-                height: 10,
-                depth: 10
+                width: 1,
+                height: 1,
+                depth: 1
             }
         },
         yAxis: {
-         labels: {
+            labels: {
+                enabled: false
+            },
+
+            min: "<%= @y_array.min.to_i + 500 %>",
+            max: "<%= @y_array.max.to_i %>",
+            title: null, 
+            gridLineWidth:0
+        },
+        xAxis: {
+            labels: {
+                enabled: false
+            },
+            min: "<%= @x_array.min.to_i + 200%>",
+            max: "<%= @x_array.max.to_i %>" - 1000 ,
+            gridLineWidth: 0
+        },
+        zAxis: {
+            labels: {
+                enabled: false
+            },
+            min: "<%= @z_array.min.to_i  - 200 %>",
+            max: "<%= @z_array.max.to_i %>" + 500,
+            showFirstLabel: false, 
+            gridLineWidth: 0
+        },
+        legend: {
             enabled: false
         },
-        min: -100,
-        max: 600,
-        title: null, 
-        gridLineWidth:0
-    },
-    xAxis: {
-        labels: {
-            enabled: false
+        plotOptions: {
+            series:{
+                color: "#FFFFFF"
+            }
         },
-        min: -100,
-        max: 200,
-        gridLineWidth: 0
-    },
-    zAxis: {
-        labels: {
-            enabled: false
-        },
-        min: -300,
-        max: 300,
-        showFirstLabel: false, 
-        gridLineWidth:0
-    },
-    legend: {
-        enabled: false
-    },
-    series: [{
-        colorByPoint: true,
-        data: stars
-    }]
-});
+        series: [{
+            colorByPoint: true,
+            data: stars,
+            tooltip: {
+                headerFormat: '',
+                pointFormat: '{point.name}<br/>x: {point.x}<br/>y: {point.y}<br/>z: {point.z}'
+            }
+        }]
+    });
+
 
 
     // Add mouse events for rotation
@@ -121,5 +134,8 @@ $(function () {
             }
         });
             });
+
+    $('#result').append('<%= j render partial: 'pollution', locals: {pollution: @pollution} %>')
+
 
 });

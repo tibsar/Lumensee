@@ -16,5 +16,22 @@ class Star
     @@api.stars_by_apparent_magnitude(max).collect{ |star| self.new(star) }
   end
 
+  def relative_brightness_radius
+    #This is a logarithmic calculation for the radius of the point on the chart
+    4*(1.25**(6.5-self.appmag)).round(2)
+  end
+
+  def generate_chart_point
+    {
+        marker: {radius: self.relative_brightness_radius},
+        name: self.label,
+        x: self.position.x,
+        y: self.position.y,
+        z: self.position.z
+    }
+  end
+
+
+
 
 end

@@ -33,6 +33,10 @@ html, body, .chart {
   padding-left: 140px;
 }
 
-/*.dropdown-menu {
-    width: 185px !important;
-}*/
+#load {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -30px; /* -1 * image width / 2 */
+  margin-top: -30px; /* -1 * image height / 2 */
+}

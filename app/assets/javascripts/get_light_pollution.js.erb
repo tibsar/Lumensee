@@ -3,6 +3,7 @@ $(document).ready(function(){
   //Get location
   var location = new Promise(function(resolve, reject){
     navigator.geolocation.getCurrentPosition(function(position) {
+
       var lat = position.coords.latitude;
       var lon = position.coords.longitude;
       coords = {};
@@ -16,7 +17,7 @@ $(document).ready(function(){
   //Get light pollution
   location.then(function(coords){
 
-      var key = "<%= ENV['NREL_key'] %>";
+    var key = "<%= ENV['NREL_key'] %>";
     var FinalURL = "https://developer.nrel.gov/api/solar/solar_resource/v1.json?api_key=" + key + "&lat=" + coords["latitude"] + "&lon=" + coords["longitude"];
     var pollution
     $.getJSON(FinalURL, function(data){
@@ -29,17 +30,20 @@ $(document).ready(function(){
 
         pollution = data["outputs"]["avg_dni"]["monthly"][month];
       }else{
-        pollution = 0.0;
+        pollution = 3.0;
       }
 
     }).done(function(result){
       $.ajax({
-          url: '/observers', 
-          method: 'POST', 
-          data: {coords: coords, pollution: pollution}
-        });
-      
-    });
+        url: '/observers', 
+        method: 'POST', 
+        data: {observer: {latitude: coords["latitude"], longitude: coords["longitude"], pollution: pollution}}
+      });
+
+//        data: {coords: coords, pollution: pollution}
+
+
+});
     // debugger;
   }); // then
 
