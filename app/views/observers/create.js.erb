@@ -31,7 +31,7 @@ $(function () {
     var chart = new Highcharts.Chart({
         chart: {
             renderTo: 'container',
-            margin: 100,
+            margin: 0,
             backgroundColor: '#000000',
             type: 'scatter',
             options3d: {
@@ -39,7 +39,7 @@ $(function () {
                 alpha: 10,
                 beta: 30,
                 depth: 250,
-                viewDistance: 5,
+                viewDistance: 1,
 
                 frame: {
                     bottom: { size: 0, color: 'rgba(0,0,0,0)' },
@@ -56,17 +56,17 @@ $(function () {
         },
         plotOptions: {
             scatter: {
-                width: 30,
-                height: 30,
-                depth: 30
+                width: 1,
+                height: 1,
+                depth: 1
             }
         },
         yAxis: {
          labels: {
             enabled: false
         },
-        min: -800,
-        max: 800,
+        min: -150,
+        max: 700,
         title: null, 
         gridLineWidth:0
     },
@@ -74,16 +74,16 @@ $(function () {
         labels: {
             enabled: false
         },
-        min: -800,
-        max: 800,
+        min: -250,
+        max: 250,
         gridLineWidth: 0
     },
     zAxis: {
         labels: {
             enabled: false
         },
-        min: -300,
-        max: 300,
+        min: -50,
+        max: 50,
         showFirstLabel: false, 
         gridLineWidth:0
     },
