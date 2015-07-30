@@ -6968,18 +6968,11 @@ a.list-group-item-danger.active:focus {
   color: #fff;
 }
 
-footer {
-  width:100%;
-  height:60px;
-  position:absolute;
-  bottom:0;
-}
-
-p.shift-left {
+.shift-left {
   padding-right: 30px;
 }
 
-p.shift-right {
+.shift-right {
   padding-left: 30px;
 }
 
@@ -6987,4 +6980,13 @@ p.shift-right {
   margin: auto;
   width: 60%;
   padding: 10px;
+}
+
+
+
+
+.site-footer {
+  height: 50px;
+  background: black;
+  bottom: 0;
 }
