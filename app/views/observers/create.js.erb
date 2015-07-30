@@ -7,7 +7,10 @@ var stars = JSON.parse("<%= @stars.to_json %>".replace(/&quot;/g, '"'));
 
 $(function () {
 
-    // Give the points a 3D feel by adding a radial gradient
+    Highcharts.setOptions({
+        colors: ['#FFFFFF', '#777777', '#666666', '#EEEEEE', '#444444', '#555555', '#FFFFCC', '#FFFFF0', '#FFFFDB']
+    });
+    //Give the points a 3D feel by adding a radial gradient
     Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function (color) {
         return {
             radialGradient: {
@@ -17,10 +20,12 @@ $(function () {
             },
             stops: [
             [0, color],
-            [1, Highcharts.Color(color).brighten(-0.2).get('rgb')]
+            [1, Highcharts.Color(color).brighten(-0.2).get('bw')]
             ]
         };
     });
+
+
 
     // Set up the chart
     var chart = new Highcharts.Chart({
@@ -51,17 +56,17 @@ $(function () {
         },
         plotOptions: {
             scatter: {
-                width: 10,
-                height: 10,
-                depth: 10
+                width: 30,
+                height: 30,
+                depth: 30
             }
         },
         yAxis: {
          labels: {
             enabled: false
         },
-        min: -100,
-        max: 600,
+        min: -800,
+        max: 800,
         title: null, 
         gridLineWidth:0
     },
@@ -69,8 +74,8 @@ $(function () {
         labels: {
             enabled: false
         },
-        min: -100,
-        max: 200,
+        min: -800,
+        max: 800,
         gridLineWidth: 0
     },
     zAxis: {
@@ -84,6 +89,11 @@ $(function () {
     },
     legend: {
         enabled: false
+    },
+    plotOptions: {
+        series:{
+            color: "#FFFFFF"
+        }
     },
     series: [{
         colorByPoint: true,
