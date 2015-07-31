@@ -18,6 +18,13 @@ class ObserversController < ApplicationController
     @x_sum_of_deviations = @x_array.inject(0){|accum, i| accum + (i - @x_mean) ** 2 }
     @x_standard_deviation = Math.sqrt(@x_sum_of_deviations/(@x_array.length-1).to_f)
 
+    @y_mean = (@y_array.inject(:+))/(@y_array.length.to_f)
+    @y_sum_of_deviations = @y_array.inject(0){|accum, i| accum + (i - @y_mean) ** 2 }
+    @y_standard_deviation = Math.sqrt(@y_sum_of_deviations/(@y_array.length-1).to_f)
+
+    @z_mean = (@z_array.inject(:+))/(@z_array.length.to_f)
+    @z_sum_of_deviations = @z_array.inject(0){|accum, i| accum + (i - @z_mean) ** 2 }
+    @z_standard_deviation = Math.sqrt(@z_sum_of_deviations/(@z_array.length-1).to_f)
 
     @stars = obs.plot_visible_stars
     respond_to do |format|

@@ -147,5 +147,25 @@ $(function () {
         chart.xAxis[0].setExtremes(new_x_min, new_x_max);
     });
 
+    var new_y_min = <%= @y_array.min.to_i %>;
+    var new_y_max = <%= @y_array.max.to_i %>;
+
+    $('#y-axis').click(function () {
+        new_y_min = new_y_min + <%= @y_standard_deviation %>;
+        new_y_max = new_y_max - <%= @y_standard_deviation %>;
+        var chart = $('#container').highcharts();
+        chart.yAxis[0].setExtremes(new_y_min, new_y_max);
+    });
+
+    var new_z_min = <%= @z_array.min.to_i %>;
+    var new_z_max = <%= @z_array.max.to_i %>;
+
+    $('#z-axis').click(function () {
+        new_z_min = new_z_min + <%= @z_standard_deviation %>;
+        new_z_max = new_z_max - <%= @z_standard_deviation %>;
+        var chart = $('#container').highcharts();
+        chart.zAxis[0].setExtremes(new_z_min, new_z_max);
+    });
+
 
 });
