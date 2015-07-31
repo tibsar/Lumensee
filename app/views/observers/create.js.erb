@@ -135,7 +135,17 @@ $(function () {
         });
             });
 
-    $('#result').html('<%= j render partial: 'pollution', locals: {pollution: @pollution} %>')
+    $('#result').html('<%= j render partial: 'pollution', locals: {pollution: @pollution} %>');
+
+    var new_x_min = <%= @x_array.min.to_i %>;
+    var new_x_max = <%= @x_array.max.to_i %>;
+
+    $('#x-axis').click(function () {
+        new_x_min = new_x_min + <%= @x_standard_deviation %>;
+        new_x_max = new_x_max - <%= @x_standard_deviation %>;
+        var chart = $('#container').highcharts();
+        chart.xAxis[0].setExtremes(new_x_min, new_x_max);
+    });
 
 
 });
