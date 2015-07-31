@@ -76,7 +76,8 @@ class Observer
 
   def stars_visible
     @stars_visible ||= @stars.select{ |star| see_star?(star) }
-  end 
+  end
+
 
   def see_star?(star)
     # (point to test) dot (plane normal) = 0 => Point is on the plane
