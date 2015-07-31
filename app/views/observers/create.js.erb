@@ -166,5 +166,29 @@ $(function () {
         chart.zAxis[0].setExtremes(new_z_min, new_z_max);
     });
 
+    var gridLine = 1;
+
+    $("#grid").click(function(){
+
+        if (gridLine === 1) {
+            gridLine = 0;
+        } else {
+            gridLine = 1;
+        }
+
+
+        chart.xAxis[0].update({
+            gridLineWidth: gridLine
+        });
+
+        chart.yAxis[0].update({
+            gridLineWidth: gridLine
+        });
+
+        chart.zAxis[0].update({
+            gridLineWidth: gridLine
+        });
+    });
+
 
 });
