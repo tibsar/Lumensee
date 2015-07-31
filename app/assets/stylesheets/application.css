@@ -31,6 +31,8 @@
 #tagline {
   margin: 10px 0 10px;
   padding-bottom: 4px;
+  left: 0;
+  padding-left: 0;
 }
 
 #tagline p {
@@ -130,3 +132,4 @@
         .navbar-right{
           padding-right: 130px;
         }
+
