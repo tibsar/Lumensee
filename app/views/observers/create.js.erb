@@ -22,10 +22,7 @@ $(function () {
         };
     });
 
-
-
-    // Set up the chart
-    var chart = new Highcharts.Chart({
+    var options = {
         chart: {
             renderTo: 'container',
             margin: 0,
@@ -101,9 +98,10 @@ $(function () {
                 pointFormat: '{point.name}<br/>x: {point.x}<br/>y: {point.y}<br/>z: {point.z}<br/>Apparent magnitude: {point.appmag}'
             }
         }]
-    });
+    };
 
-
+    // Set up the chart
+    var chart = new Highcharts.Chart(options);
 
     // Add mouse events for rotation
     $(chart.container).bind('mousedown.hc touchstart.hc', function (e) {
