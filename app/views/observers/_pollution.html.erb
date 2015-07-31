@@ -2,11 +2,13 @@
 
 <div id="location"><p>Current location: <%= @latitude %>, <%= @longitude %></p></div><div id="pollution"><p>Light pollution in your area: <%= pollution %> </p></div>
 
- <center> <div class="controls">
-    <a id="x-axis" class="btn btn-primary">Decrease X-Axis (2 &sigma;)</a>
-    <a id="y-axis" class="btn btn-primary">Decrease Y-Axis (2 &sigma;)</a>
-    <a id="z-axis" class="btn btn-primary">Decrease Z-Axis (2 &sigma;)</a>
+<center> <div class="controls">
+ <a id="grid" class="btn btn-default">Toggle Grid</a> &#09;
+ <a id="x-axis-less" class="btn btn-primary"> - </a> X-Axis
+ <a id="x-axis-more" class="btn btn-primary"> + </a> &#09;
+ <a id="y-axis-less" class="btn btn-primary"> - </a> Y-Axis
+ <a id="y-axis-more" class="btn btn-primary"> + </a> &#09;&#9;&#9;
+ <a id="z-axis-less" class="btn btn-primary"> - </a> Z-Axis
+ <a id="z-axis-more" class="btn btn-primary"> + </a> &#09;&#9;&#9;
 
-    <a id="grid" class="btn btn-default">Toggle Grid</a>
-
-  </div></center>
+</div></center>

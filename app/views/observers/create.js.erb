@@ -1,7 +1,5 @@
 
 var stars = JSON.parse("<%= @stars.to_json %>".replace(/&quot;/g, '"'));
-console.log("<%= @average_x %>")
-console.log("<%= @average_x %>" - 500)
 $(function () {
 
     Highcharts.setOptions({
@@ -140,27 +138,54 @@ $(function () {
     var new_x_min = <%= @x_array.min.to_i %>;
     var new_x_max = <%= @x_array.max.to_i %>;
 
-    $('#x-axis').click(function () {
+    $('#x-axis-less').click(function () {
         new_x_min = new_x_min + <%= @x_standard_deviation %>;
         new_x_max = new_x_max - <%= @x_standard_deviation %>;
+        chart.xAxis[0].setExtremes(new_x_min, new_x_max);
+    });
+
+    var new_x_min = <%= @x_array.min.to_i %>;
+    var new_x_max = <%= @x_array.max.to_i %>;
+
+    $('#x-axis-more').click(function () {
+        new_x_min = new_x_min - <%= @x_standard_deviation %>;
+        new_x_max = new_x_max + <%= @x_standard_deviation %>;
         chart.xAxis[0].setExtremes(new_x_min, new_x_max);
     });
 
     var new_y_min = <%= @y_array.min.to_i %>;
     var new_y_max = <%= @y_array.max.to_i %>;
 
-    $('#y-axis').click(function () {
+    $('#y-axis-less').click(function () {
         new_y_min = new_y_min + <%= @y_standard_deviation %>;
         new_y_max = new_y_max - <%= @y_standard_deviation %>;
+        chart.yAxis[0].setExtremes(new_y_min, new_y_max);
+    });
+
+    var new_y_min = <%= @y_array.min.to_i %>;
+    var new_y_max = <%= @y_array.max.to_i %>;
+
+    $('#y-axis-more').click(function () {
+        new_y_min = new_y_min - <%= @y_standard_deviation %>;
+        new_y_max = new_y_max + <%= @y_standard_deviation %>;
         chart.yAxis[0].setExtremes(new_y_min, new_y_max);
     });
 
     var new_z_min = <%= @z_array.min.to_i %>;
     var new_z_max = <%= @z_array.max.to_i %>;
 
-    $('#z-axis').click(function () {
+    $('#z-axis-less').click(function () {
         new_z_min = new_z_min + <%= @z_standard_deviation %>;
         new_z_max = new_z_max - <%= @z_standard_deviation %>;
+        chart.zAxis[0].setExtremes(new_z_min, new_z_max);
+    });
+
+    var new_z_min = <%= @z_array.min.to_i %>;
+    var new_z_max = <%= @z_array.max.to_i %>;
+
+    $('#z-axis-more').click(function () {
+        new_z_min = new_z_min - <%= @z_standard_deviation %>;
+        new_z_max = new_z_max + <%= @z_standard_deviation %>;
         chart.zAxis[0].setExtremes(new_z_min, new_z_max);
     });
 
