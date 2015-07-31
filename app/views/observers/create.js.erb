@@ -137,13 +137,14 @@ $(function () {
 
     $('#result').html('<%= j render partial: 'pollution', locals: {pollution: @pollution} %>');
 
+    var chart = $('#container').highcharts();
+
     var new_x_min = <%= @x_array.min.to_i %>;
     var new_x_max = <%= @x_array.max.to_i %>;
 
     $('#x-axis').click(function () {
         new_x_min = new_x_min + <%= @x_standard_deviation %>;
         new_x_max = new_x_max - <%= @x_standard_deviation %>;
-        var chart = $('#container').highcharts();
         chart.xAxis[0].setExtremes(new_x_min, new_x_max);
     });
 
@@ -153,7 +154,6 @@ $(function () {
     $('#y-axis').click(function () {
         new_y_min = new_y_min + <%= @y_standard_deviation %>;
         new_y_max = new_y_max - <%= @y_standard_deviation %>;
-        var chart = $('#container').highcharts();
         chart.yAxis[0].setExtremes(new_y_min, new_y_max);
     });
 
@@ -163,7 +163,6 @@ $(function () {
     $('#z-axis').click(function () {
         new_z_min = new_z_min + <%= @z_standard_deviation %>;
         new_z_max = new_z_max - <%= @z_standard_deviation %>;
-        var chart = $('#container').highcharts();
         chart.zAxis[0].setExtremes(new_z_min, new_z_max);
     });
 
