@@ -31,6 +31,8 @@
 #tagline {
   margin: 10px 0 10px;
   padding-bottom: 4px;
+  left: 0;
+  padding-left: 0;
 }
 
 #tagline p {
@@ -126,3 +128,12 @@
         .btn-left{
           margin-left: 10px;
         }
+
+        .navbar-right{
+          padding-right: 130px;
+        }
+
+        .btn-adjust{
+          width: 3em;
+        }
+
