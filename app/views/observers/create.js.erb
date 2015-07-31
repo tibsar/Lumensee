@@ -101,13 +101,7 @@ $(function () {
     };
 
     // Set up the chart
-    
-
-    // var make_chart = new Promise(function(resolve, reject){
-        var chart = new Highcharts.Chart(options);
-    // });
-
-    // make_chart
+    var chart = new Highcharts.Chart(options);
 
     // Add mouse events for rotation
     $(chart.container).bind('mousedown.hc touchstart.hc', function (e) {
