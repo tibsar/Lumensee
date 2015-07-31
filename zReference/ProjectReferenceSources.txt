@@ -13,3 +13,10 @@ The HYG Database
 To Investigate:
     -Starmap based on location:
         -http://fourmilab.ch/yoursky/
+
+
+
+
+
+
+

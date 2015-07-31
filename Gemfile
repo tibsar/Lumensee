@@ -53,6 +53,5 @@ group :development, :test do
 
   gem 'bootstrap-sass'
 
-
 end
 
